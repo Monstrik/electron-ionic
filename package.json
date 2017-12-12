@@ -4,12 +4,15 @@
   "author": "Ionic Framework",
   "homepage": "http://ionicframework.com/",
   "private": true,
+  "main": "electron/main.js",
   "scripts": {
     "clean": "ionic-app-scripts clean",
     "build": "ionic-app-scripts build",
     "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
-    "ionic:serve": "ionic-app-scripts serve"
+    "ionic:serve": "ionic-app-scripts serve",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
   "dependencies": {
     "@angular/common": "5.0.3",
@@ -32,7 +35,19 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "3.1.5",
+    "electron": "^1.7.9",
+    "electron-builder": "^19.49.0",
     "typescript": "2.4.2"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "build": {
+    "appId": "org.robferguson.BigTop",
+    "files": [
+      "electron/main.js",
+      "www/**/*"
+    ],
+    "mac": {
+      "category": "productivity"
+    }
+  }
 }
